@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <title>Sign In — Jabil Forms Hub</title>
+
+        <meta name="description" content="Jabil Forms Hub - Sign In">
+        <meta name="author" content="Jabil IT UX Design">
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- Icons -->
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+        <link rel="stylesheet" id="css-main" href="assets/css/jabilbootstrap4.min.css">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <div id="page-container" class="main-content-boxed">
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content content-full">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-6 mx-auto d-flex flex-column justify-content-center min-vh-100">
+                            <!-- Sign In Block -->
+                            <div class="block block-rounded block-transparent mb-0">
+                                <div class="block-content p-5">
+                                    <!-- Logo -->
+                                    <div class="text-center mb-5">
+                                        <div class="mb-3">
+                                            <svg class="img-avatar img-avatar64" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                                <rect width="100" height="100" fill="#6366f1"/>
+                                                <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle">J</text>
+                                            </svg>
+                                        </div>
+                                        <h2 class="font-w600 mb-1">Jabil Forms</h2>
+                                        <p class="text-muted">Sign in to your account</p>
+                                    </div>
+                                    <!-- END Logo -->
+
+                                    <!-- Sign In Form -->
+                                    <form id="signin-form" class="js-validate" onsubmit="handleSignIn(event)">
+                                        <!-- Email -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="email">Work Email</label>
+                                            <input type="email" class="form-control form-control-alt" id="email" name="email" placeholder="you@jabil.com" required>
+                                            <span class="text-danger small" id="email-error"></span>
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="password">Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-alt" id="password" name="password" placeholder="••••••••" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button" id="toggle-password">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <span class="text-danger small" id="password-error"></span>
+                                            <small class="form-text text-muted">At least 8 characters</small>
+                                        </div>
+
+                                        <!-- Remember & Forgot -->
+                                        <div class="form-group d-flex justify-content-between align-items-center mb-4">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked>
+                                                <span class="custom-control-label">Remember me</span>
+                                            </label>
+                                            <a href="jabilformshub_forgot_password.html" class="link-fx font-size-sm font-w600">Forgot password?</a>
+                                        </div>
+
+                                        <!-- Submit -->
+                                        <button type="submit" class="btn btn-block btn-primary">
+                                            <span id="signin-btn-text">Sign In</span>
+                                            <i class="fa fa-sign-in-alt ml-2"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END Sign In Form -->
+
+                                    <!-- Sign Up Link -->
+                                    <div class="text-center pt-4">
+                                        <p class="text-muted font-size-sm">
+                                            Don't have an account?
+                                            <a href="jabilformshub_signup.html" class="link-fx font-w600">Create one now</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END Sign In Block -->
+
+                            <!-- Footer -->
+                            <div class="text-center mt-5">
+                                <p class="text-muted font-size-sm">
+                                    <a href="http://jabil.com" target="_blank" class="link-fx">Jabil</a> © 2024 | <a href="#" class="link-fx">Privacy Policy</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Core JS -->
+        <script src="assets/js/jabilbootstrap.core.min.js"></script>
+        <script src="assets/js/jabilbootstrap.app.min.js"></script>
+
+        <!-- Custom JS for Forms Hub -->
+        <script>
+            // Toggle password visibility
+            document.getElementById('toggle-password').addEventListener('click', function() {
+                const input = document.getElementById('password');
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+
+            // Form validation and submission
+            function handleSignIn(event) {
+                event.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Reset errors
+                document.getElementById('email-error').textContent = '';
+                document.getElementById('password-error').textContent = '';
+                
+                let hasError = false;
+                
+                // Validate email
+                if (!email) {
+                    document.getElementById('email-error').textContent = 'Email is required';
+                    hasError = true;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').textContent = 'Enter a valid email';
+                    hasError = true;
+                }
+                
+                // Validate password
+                if (!password) {
+                    document.getElementById('password-error').textContent = 'Password is required';
+                    hasError = true;
+                } else if (password.length < 8) {
+                    document.getElementById('password-error').textContent = 'Password must be at least 8 characters';
+                    hasError = true;
+                }
+                
+                if (!hasError) {
+                    // Simulate login (replace with actual API call)
+                    document.getElementById('signin-btn-text').textContent = 'Signing in...';
+                    document.querySelector('button[type="submit"]').disabled = true;
+                    
+                    setTimeout(() => {
+                        // Store user session (in real app, use secure methods)
+                        sessionStorage.setItem('isAuthenticated', 'true');
+                        sessionStorage.setItem('userEmail', email);
+                        window.location.href = 'jabilformshub_dashboard.html';
+                    }, 1500);
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <title>Create Account — Jabil Forms Hub</title>
+
+        <meta name="description" content="Jabil Forms Hub - Create Account">
+        <meta name="author" content="Jabil IT UX Design">
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- Icons -->
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+        <link rel="stylesheet" id="css-main" href="assets/css/jabilbootstrap4.min.css">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <div id="page-container" class="main-content-boxed">
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content content-full">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-6 mx-auto d-flex flex-column justify-content-center min-vh-100">
+                            <!-- Sign Up Block -->
+                            <div class="block block-rounded block-transparent mb-0">
+                                <div class="block-content p-5">
+                                    <!-- Logo -->
+                                    <div class="text-center mb-5">
+                                        <div class="mb-3">
+                                            <svg class="img-avatar img-avatar64" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                                <rect width="100" height="100" fill="#6366f1"/>
+                                                <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle">J</text>
+                                            </svg>
+                                        </div>
+                                        <h2 class="font-w600 mb-1">Create Account</h2>
+                                        <p class="text-muted">Join Jabil Forms Hub</p>
+                                    </div>
+                                    <!-- END Logo -->
+
+                                    <!-- Sign Up Form -->
+                                    <form id="signup-form" class="js-validate" onsubmit="handleSignUp(event)">
+                                        <!-- Full Name -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="fullname">Full Name</label>
+                                            <input type="text" class="form-control form-control-alt" id="fullname" name="fullname" placeholder="John Doe" required>
+                                            <span class="text-danger small" id="fullname-error"></span>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="signup-email">Work Email</label>
+                                            <input type="email" class="form-control form-control-alt" id="signup-email" name="email" placeholder="you@jabil.com" required>
+                                            <span class="text-danger small" id="email-error"></span>
+                                        </div>
+
+                                        <!-- Department -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="department">Department</label>
+                                            <select class="form-control form-control-alt" id="department" name="department" required>
+                                                <option value="">Select department...</option>
+                                                <option value="manufacturing">Manufacturing</option>
+                                                <option value="quality">Quality</option>
+                                                <option value="engineering">Engineering</option>
+                                                <option value="logistics">Logistics</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="hr">Human Resources</option>
+                                                <option value="it">Information Technology</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <span class="text-danger small" id="department-error"></span>
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="signup-password">Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-alt" id="signup-password" name="password" placeholder="••••••••" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <span class="text-danger small" id="password-error"></span>
+                                            <!-- Password Strength -->
+                                            <div class="mt-2">
+                                                <div class="progress" style="height: 4px;">
+                                                    <div id="strength-bar" class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    Strength: <span id="strength-text">Weak</span>
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        <!-- Confirm Password -->
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="confirm-password">Confirm Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-alt" id="confirm-password" name="confirm" placeholder="••••••••" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button" id="toggle-confirm-password">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <span class="text-danger small" id="confirm-error"></span>
+                                        </div>
+
+                                        <!-- Terms -->
+                                        <div class="form-group">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="agree" name="agree" required>
+                                                <span class="custom-control-label">
+                                                    I agree to the <a href="#" class="link-fx">Terms of Service</a> and <a href="#" class="link-fx">Privacy Policy</a>
+                                                </span>
+                                            </label>
+                                        </div>
+
+                                        <!-- Submit -->
+                                        <button type="submit" class="btn btn-block btn-primary">
+                                            <span id="signup-btn-text">Create Account</span>
+                                            <i class="fa fa-user-plus ml-2"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END Sign Up Form -->
+
+                                    <!-- Sign In Link -->
+                                    <div class="text-center pt-4">
+                                        <p class="text-muted font-size-sm">
+                                            Already have an account?
+                                            <a href="jabilformshub_signin.html" class="link-fx font-w600">Sign in here</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END Sign Up Block -->
+
+                            <!-- Footer -->
+                            <div class="text-center mt-5">
+                                <p class="text-muted font-size-sm">
+                                    <a href="http://jabil.com" target="_blank" class="link-fx">Jabil</a> © 2024 | <a href="#" class="link-fx">Privacy Policy</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Core JS -->
+        <script src="assets/js/jabilbootstrap.core.min.js"></script>
+        <script src="assets/js/jabilbootstrap.app.min.js"></script>
+
+        <!-- Custom JS for Forms Hub -->
+        <script>
+            // Toggle password visibility
+            document.getElementById('toggle-signup-password').addEventListener('click', function() {
+                const input = document.getElementById('signup-password');
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+
+            document.getElementById('toggle-confirm-password').addEventListener('click', function() {
+                const input = document.getElementById('confirm-password');
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+
+            // Password strength meter
+            document.getElementById('signup-password').addEventListener('input', function() {
+                const pw = this.value;
+                let score = 0;
+                if (pw.length >= 8) score++;
+                if (/[A-Z]/.test(pw)) score++;
+                if (/\d/.test(pw)) score++;
+                if (/[^A-Za-z0-9]/.test(pw)) score++;
+
+                const bar = document.getElementById('strength-bar');
+                const text = document.getElementById('strength-text');
+                
+                if (score <= 1) {
+                    bar.style.width = '25%';
+                    bar.className = 'progress-bar bg-danger';
+                    text.textContent = 'Weak';
+                } else if (score === 2 || score === 3) {
+                    bar.style.width = '50%';
+                    bar.className = 'progress-bar bg-warning';
+                    text.textContent = 'Fair';
+                } else {
+                    bar.style.width = '100%';
+                    bar.className = 'progress-bar bg-success';
+                    text.textContent = 'Strong';
+                }
+            });
+
+            // Form validation and submission
+            function handleSignUp(event) {
+                event.preventDefault();
+                
+                const fullname = document.getElementById('fullname').value;
+                const email = document.getElementById('signup-email').value;
+                const department = document.getElementById('department').value;
+                const password = document.getElementById('signup-password').value;
+                const confirm = document.getElementById('confirm-password').value;
+                const agree = document.getElementById('agree').checked;
+                
+                // Reset errors
+                document.getElementById('fullname-error').textContent = '';
+                document.getElementById('email-error').textContent = '';
+                document.getElementById('department-error').textContent = '';
+                document.getElementById('password-error').textContent = '';
+                document.getElementById('confirm-error').textContent = '';
+                
+                let hasError = false;
+                
+                // Validate name
+                if (!fullname.trim()) {
+                    document.getElementById('fullname-error').textContent = 'Full name is required';
+                    hasError = true;
+                }
+                
+                // Validate email
+                if (!email) {
+                    document.getElementById('email-error').textContent = 'Email is required';
+                    hasError = true;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').textContent = 'Enter a valid email';
+                    hasError = true;
+                }
+                
+                // Validate department
+                if (!department) {
+                    document.getElementById('department-error').textContent = 'Select a department';
+                    hasError = true;
+                }
+                
+                // Validate password
+                if (!password) {
+                    document.getElementById('password-error').textContent = 'Password is required';
+                    hasError = true;
+                } else if (password.length < 8) {
+                    document.getElementById('password-error').textContent = 'At least 8 characters';
+                    hasError = true;
+                } else if (!/[A-Z]/.test(password)) {
+                    document.getElementById('password-error').textContent = 'Must include 1 uppercase letter';
+                    hasError = true;
+                } else if (!/\d/.test(password)) {
+                    document.getElementById('password-error').textContent = 'Must include 1 number';
+                    hasError = true;
+                }
+                
+                // Validate confirm password
+                if (!confirm) {
+                    document.getElementById('confirm-error').textContent = 'Confirm your password';
+                    hasError = true;
+                } else if (confirm !== password) {
+                    document.getElementById('confirm-error').textContent = 'Passwords do not match';
+                    hasError = true;
+                }
+                
+                if (!hasError && agree) {
+                    // Simulate signup (replace with actual API call)
+                    document.getElementById('signup-btn-text').textContent = 'Creating account...';
+                    document.querySelector('button[type="submit"]').disabled = true;
+                    
+                    setTimeout(() => {
+                        sessionStorage.setItem('isAuthenticated', 'true');
+                        sessionStorage.setItem('userEmail', email);
+                        sessionStorage.setItem('userName', fullname);
+                        window.location.href = 'jabilformshub_dashboard.html';
+                    }, 1500);
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <title>Dashboard — Jabil Forms Hub</title>
+
+        <meta name="description" content="Jabil Forms Hub - Dashboard">
+        <meta name="author" content="Jabil IT UX Design">
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- Icons -->
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+        <link rel="stylesheet" id="css-main" href="assets/css/jabilbootstrap4.min.css">
+        
+        <!-- Custom styles for Forms Hub -->
+        <style>
+            .template-card {
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            .template-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+            .template-gradient {
+                background: linear-gradient(135deg, var(--from-color), var(--to-color));
+                color: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                text-align: center;
+            }
+            .form-status {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+            .form-status.pending {
+                background-color: #fef3c7;
+                color: #92400e;
+            }
+            .form-status.approved {
+                background-color: #d1fae5;
+                color: #065f46;
+            }
+            .form-status.rejected {
+                background-color: #fee2e2;
+                color: #7f1d1d;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Page Container -->
+        <div id="page-container" class="sidebar-o sidebar-dark sidebar-mini enable-page-overlay side-scroll page-header-fixed">
+            <!-- Sidebar -->
+            <nav id="sidebar" aria-label="Main Navigation">
+                <!-- Side Header -->
+                <div class="content-header bg-white-5">
+                    <!-- Logo -->
+                    <a class="font-w600 text-dual" href="jabilformshub_dashboard.html">
+                        <svg class="img-avatar img-avatar24 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#6366f1"/>
+                            <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle">J</text>
+                        </svg>
+                        <span class="smini-hide">Jabil Forms Hub</span>
+                    </a>
+                    <!-- END Logo -->
+
+                    <!-- Close Sidebar, Visible only on mobile screens -->
+                    <a class="d-lg-none text-dual ml-auto" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+                <!-- END Side Header -->
+
+                <!-- Side Navigation -->
+                <div class="content-side content-side-full">
+                    <ul class="nav-main">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="jabilformshub_dashboard.html">
+                                <i class="nav-main-link-icon si si-home"></i>
+                                <span class="nav-main-link-name">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Forms</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-plus-circle"></i>
+                                <span class="nav-main-link-name">Create Form</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-list"></i>
+                                <span class="nav-main-link-name">My Forms</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-check-circle"></i>
+                                <span class="nav-main-link-name">Responses</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Templates</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-layers"></i>
+                                <span class="nav-main-link-name">Templates</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Tools</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-chart-line"></i>
+                                <span class="nav-main-link-name">Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="#">
+                                <i class="nav-main-link-icon si si-users"></i>
+                                <span class="nav-main-link-name">Shared</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END Side Navigation -->
+            </nav>
+            <!-- END Sidebar -->
+
+            <!-- Header -->
+            <header id="page-header">
+                <!-- Header Content -->
+                <div class="content-header">
+                    <!-- Left Section -->
+                    <div class="d-flex align-items-center">
+                        <!-- Toggle Sidebar -->
+                        <button type="button" aria-label="sidebar toggle" class="btn btn-sm btn-dual mr-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                        <!-- END Toggle Sidebar -->
+
+                        <!-- Toggle Mini Sidebar -->
+                        <button type="button" aria-label="sidebar mini toggle" class="btn btn-sm btn-dual mr-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                        <!-- END Toggle Mini Sidebar -->
+
+                        <!-- Search Form -->
+                        <form class="d-none d-sm-inline-block" action="" autocomplete="off">
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="search" id="search-forms" class="form-control form-control-alt" placeholder="Search forms...">
+                                <div class="input-group-append">
+                                    <button type="button" aria-label="search button" class="btn bg-body"><i class="si si-magnifier"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END Search Form -->
+                    </div>
+                    <!-- END Left Section -->
+
+                    <!-- Right Section -->
+                    <div class="d-flex align-items-center gap-2">
+                        <!-- Notifications -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" aria-label="notifications" class="btn btn-sm btn-dual" id="notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="si si-bell"></i>
+                                <span class="badge badge-primary">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="notifications-dropdown">
+                                <a class="dropdown-item" href="#">
+                                    <span class="font-w600">New response received</span>
+                                    <small class="text-muted">2 min ago</small>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="font-w600">Form shared with you</span>
+                                    <small class="text-muted">1 hour ago</small>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="font-w600">Your form was published</span>
+                                    <small class="text-muted">3 hours ago</small>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- User Profile -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" aria-label="user profile" class="btn btn-sm btn-dual" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="si si-user-check"></i>
+                                <span id="user-name-short" class="smini-hide ml-1">User</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="si si-user mr-2"></i> Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="si si-settings mr-2"></i> Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" onclick="handleSignOut()">
+                                    <i class="si si-logout mr-2"></i> Sign Out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Right Section -->
+                </div>
+                <!-- END Header Content -->
+            </header>
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Welcome Banner -->
+                <div class="bg-body-light border-bottom">
+                    <div class="content">
+                        <div class="py-4">
+                            <h2 class="h3 font-w600 mb-1">Good afternoon, <span id="greeting-name">User</span>!</h2>
+                            <p class="text-muted mb-0"><span id="current-date"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Welcome Banner -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Templates Section -->
+                    <div class="block block-rounded mb-4">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Templates</h3>
+                        </div>
+                        <div class="block-content">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3 mb-3">
+                                    <div class="template-card">
+                                        <div class="template-gradient" style="--from-color: #6366f1; --to-color: #8b5cf6;">
+                                            <h5 class="mb-2">Workflow Solution</h5>
+                                            <p class="mb-0 font-size-sm">Streamline your work flow: collect info, send reminders, view summaries.</p>
+                                        </div>
+                                        <div class="p-3 bg-white border border-top-0">
+                                            <button class="btn btn-sm btn-primary btn-block">Use Template</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 mb-3">
+                                    <div class="template-card">
+                                        <div class="template-gradient" style="--from-color: #f97316; --to-color: #fb923c;">
+                                            <h5 class="mb-2">Registration</h5>
+                                            <p class="mb-0 font-size-sm">Event sign-ups, training enrollment, visitor check-in.</p>
+                                        </div>
+                                        <div class="p-3 bg-white border border-top-0">
+                                            <button class="btn btn-sm btn-primary btn-block">Use Template</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 mb-3">
+                                    <div class="template-card">
+                                        <div class="template-gradient" style="--from-color: #3b82f6; --to-color: #60a5fa;">
+                                            <h5 class="mb-2">Research</h5>
+                                            <p class="mb-0 font-size-sm">Surveys, feedback collection, market research.</p>
+                                        </div>
+                                        <div class="p-3 bg-white border border-top-0">
+                                            <button class="btn btn-sm btn-primary btn-block">Use Template</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 mb-3">
+                                    <div class="template-card">
+                                        <div class="template-gradient" style="--from-color: #ec4899; --to-color: #f472b6;">
+                                            <h5 class="mb-2">Quiz</h5>
+                                            <p class="mb-0 font-size-sm">Knowledge checks, certifications, compliance tests.</p>
+                                        </div>
+                                        <div class="p-3 bg-white border border-top-0">
+                                            <button class="btn btn-sm btn-primary btn-block">Use Template</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Templates Section -->
+
+                    <!-- Forms List -->
+                    <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Recent Forms</h3>
+                            <div class="block-options">
+                                <button type="button" aria-label="create form" class="btn btn-sm btn-primary" onclick="alert('Create Form feature coming soon')">
+                                    <i class="fa fa-plus mr-1"></i> New Form
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <!-- Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-block mb-3" role="tablist">
+                                <li class="nav-item" role="listitem">
+                                    <button class="nav-link active" data-toggle="tab" href="#tab-recent" role="tab">Recent</button>
+                                </li>
+                                <li class="nav-item" role="listitem">
+                                    <button class="nav-link" data-toggle="tab" href="#tab-my-forms" role="tab">My Forms</button>
+                                </li>
+                                <li class="nav-item" role="listitem">
+                                    <button class="nav-link" data-toggle="tab" href="#tab-filled" role="tab">Filled Forms</button>
+                                </li>
+                                <li class="nav-item" role="listitem">
+                                    <button class="nav-link" data-toggle="tab" href="#tab-shared" role="tab">Shared with me</button>
+                                </li>
+                                <li class="nav-item" role="listitem">
+                                    <button class="nav-link" data-toggle="tab" href="#tab-favorites" role="tab">Favorites</button>
+                                </li>
+                            </ul>
+
+                            <!-- Tab Content -->
+                            <div class="tab-content">
+                                <!-- Recent Tab -->
+                                <div class="tab-pane fade show active" id="tab-recent" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 40%;">Form Name</th>
+                                                    <th>By</th>
+                                                    <th>Date</th>
+                                                    <th style="width: 100px;">Responses</th>
+                                                    <th style="width: 80px;">Status</th>
+                                                    <th style="width: 60px;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="forms-table">
+                                                <!-- Forms will be populated by JS -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END Recent Tab -->
+
+                                <!-- My Forms Tab -->
+                                <div class="tab-pane fade" id="tab-my-forms" role="tabpanel">
+                                    <p class="text-muted">Your created forms will appear here.</p>
+                                </div>
+
+                                <!-- Filled Forms Tab -->
+                                <div class="tab-pane fade" id="tab-filled" role="tabpanel">
+                                    <p class="text-muted">Forms you have responded to will appear here.</p>
+                                </div>
+
+                                <!-- Shared with me Tab -->
+                                <div class="tab-pane fade" id="tab-shared" role="tabpanel">
+                                    <p class="text-muted">Forms shared with you will appear here.</p>
+                                </div>
+
+                                <!-- Favorites Tab -->
+                                <div class="tab-pane fade" id="tab-favorites" role="tabpanel">
+                                    <p class="text-muted">Your favorite forms will appear here.</p>
+                                </div>
+                            </div>
+                            <!-- END Tab Content -->
+                        </div>
+                    </div>
+                    <!-- END Forms List -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+            <!-- Footer -->
+            <footer id="page-footer" class="bg-body-light">
+                <div class="content py-3">
+                    <div class="row font-size-sm">
+                        <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-right">
+                            <div class="footer-logo">
+                                <a href="http://jabil.com" target="_blank"><img alt="Jabil logo" src="assets/media/various/JabilLogo_color.png" style="max-height: 30px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
+                            <a class="font-w600" href="#">Jabil Forms Hub</a> © 2024 | <a class="font-w600" href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- END Footer -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Core JS -->
+        <script src="assets/js/jabilbootstrap.core.min.js"></script>
+        <script src="assets/js/jabilbootstrap.app.min.js"></script>
+
+        <!-- Custom JS for Forms Hub Dashboard -->
+        <script>
+            // Check authentication
+            function checkAuth() {
+                if (sessionStorage.getItem('isAuthenticated') !== 'true') {
+                    window.location.href = 'jabilformshub_signin.html';
+                    return false;
+                }
+                return true;
+            }
+
+            // Initialize dashboard
+            if (checkAuth()) {
+                // Set user name
+                const userName = sessionStorage.getItem('userName') || sessionStorage.getItem('userEmail')?.split('@')[0] || 'User';
+                const firstName = userName.split(' ')[0];
+                document.getElementById('greeting-name').textContent = firstName;
+                document.getElementById('user-name-short').textContent = firstName;
+
+                // Set current date
+                const today = new Date();
+                const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+                document.getElementById('current-date').textContent = today.toLocaleDateString(undefined, options);
+
+                // Sample forms data
+                const FORMS = [
+                    { id: 1, name: 'Equipment Calibration Log #4421', by: 'Maria Chen', date: 'Today, 09:42', status: 'Pending', responses: 12 },
+                    { id: 2, name: 'Quality Inspection — Line 3', by: 'David Patel', date: 'Today, 08:15', status: 'Approved', responses: 34 },
+                    { id: 3, name: 'Material Variance Report', by: 'Aisha Okafor', date: 'Yesterday, 17:22', status: 'Approved', responses: 8 },
+                    { id: 4, name: 'Safety Incident — Bay 12', by: 'Tomás Rivera', date: 'Yesterday, 14:08', status: 'Rejected', responses: 1 },
+                    { id: 5, name: 'Shift Handover — Night Crew', by: 'Lin Wei', date: 'Jun 10, 23:05', status: 'Approved', responses: 5 },
+                    { id: 6, name: 'Supplier Audit Checklist', by: 'Rachel Kim', date: 'Jun 9, 16:30', status: 'Pending', responses: 0 },
+                ];
+
+                // Populate forms table
+                const table = document.getElementById('forms-table');
+                FORMS.forEach(form => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><strong>${form.name}</strong></td>
+                        <td>${form.by}</td>
+                        <td>${form.date}</td>
+                        <td>${form.responses}</td>
+                        <td><span class="form-status ${form.status.toLowerCase()}">${form.status}</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" onclick="alert('View ${form.id}')">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </td>
+                    `;
+                    table.appendChild(row);
+                });
+
+                // Search functionality
+                document.getElementById('search-forms').addEventListener('input', function() {
+                    const query = this.value.toLowerCase();
+                    const rows = table.querySelectorAll('tr');
+                    rows.forEach(row => {
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = text.includes(query) ? '' : 'none';
+                    });
+                });
+            }
+
+            // Sign out
+            function handleSignOut() {
+                if (confirm('Are you sure you want to sign out?')) {
+                    sessionStorage.clear();
+                    window.location.href = 'jabilformshub_signin.html';
+                }
+            }
+        </script>
+    </body>
+</html>
